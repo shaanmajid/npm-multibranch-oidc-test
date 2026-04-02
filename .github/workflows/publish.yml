@@ -3,7 +3,7 @@ name: Publish package to NPM
 on:
   push:
     tags:
-      - 'v1.*.*'
+      - 'v0.*.*'
 
 permissions:
   contents: read

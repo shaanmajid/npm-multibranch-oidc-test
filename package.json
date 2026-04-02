@@ -1,0 +1,11 @@
+{
+  "name": "@shaanmajid/npm-multibranch-oidc-test",
+  "version": "1.0.0",
+  "description": "Test: npm OIDC Trusted Publishing from multiple branches",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaanmajid/npm-multibranch-oidc-test"
+  },
+  "license": "MIT"
+}

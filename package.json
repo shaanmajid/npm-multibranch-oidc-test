@@ -1,6 +1,6 @@
 {
   "name": "@shaanmajid/npm-multibranch-oidc-test",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Test: npm OIDC Trusted Publishing from multiple branches",
   "main": "index.js",
   "repository": {

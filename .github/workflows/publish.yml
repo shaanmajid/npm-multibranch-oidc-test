@@ -59,5 +59,8 @@ jobs:
         with:
           node-version: 24.x
           registry-url: 'https://registry.npmjs.org'
-      - name: Publish to NPM
-        run: npm publish --provenance --access public --tag legacy
+      # Node 24/26 bundle npm 11.13.0; `npm stage publish` requires npm >= 11.15.0.
+      - name: Pin npm with staged-publishing support
+        run: npm install -g npm@11.15.0
+      - name: Publish to NPM (staged)
+        run: npm stage publish --provenance --access public --tag legacy

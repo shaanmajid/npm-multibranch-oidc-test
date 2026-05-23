@@ -1,0 +1,32 @@
+name: node-npm-probe
+
+on:
+  push:
+    branches: ["probe/node-npm"]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["24.x", "26.x"]
+    steps:
+      - name: Setup Node ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Report bundled npm + stage availability
+        run: |
+          echo "requested_node=${{ matrix.node }}"
+          echo "node=$(node --version)"
+          echo "npm=$(npm --version)"
+          if npm stage publish --help >/dev/null 2>&1; then
+            echo "npm_stage_publish=PRESENT"
+          else
+            echo "npm_stage_publish=ABSENT(exit=$?)"
+          fi
